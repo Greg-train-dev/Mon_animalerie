@@ -32,7 +32,7 @@ def animal_detail(request, id_animal):
                 else:
                     animal.save()
                     return redirect('animal_detail', id_animal=id_animal)
-                
+
             elif form.data['lieu'] == "salle d'entraînement":
                 form.save(commit=False)
                 if animal.etat == "Repus":
