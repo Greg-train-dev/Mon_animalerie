@@ -1,0 +1,15 @@
+{% extends 'animalerie/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% for animal in animaux %}
+    <div class="col-md-4">
+        <div class="photo">
+            {% load static %} <img src="{% static animal.photo %}" alt="image" class="img-thumbnail"/>
+        </div>
+        <h2><a href="{% url 'animal_detail' id_animal=animal.id_animal %}">{{ animal.id_animal }}</a></h2>
+        <h3><a href="">statut: {{ animal.etat }}</a></h3>
+        <h3><a href="">lieu: <u>{{ animal.lieu }}</u></a></h3>
+    </div>
+    {% endfor %}
+{% endblock %}

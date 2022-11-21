@@ -1,0 +1,64 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Centre de commandement</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/animalerie.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=neon">
+        <!--<Import Google Icon Font>-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+
+    <div>
+        <div class="page-header">
+            <h1><a href="/">Bienvenue dans ton centre de commandement !</a></h1>
+        </div>
+        <h1>
+            <a href="/"> </a>
+        </h1>
+        <div class="container-fluid">
+            <div class="sous-titre">
+                <div class="col-md-9" align="center">
+                    <!--<h1><a href="/">Mes animaux</a></h1>-->
+                    <h1 class="font-effect-neon">Mon équipe</h1>
+                </div>
+                <div class="col-md-3" align="center">
+                    <!--<h1><a href="/">Mes animaux</a></h1>-->
+                    <h1 class="font-effect-neon">Lieux</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Permet de laisser un espace entre les titres et les images-->
+        <div>
+            <h1 class=" "></h1>
+        </div>
+        <div>
+            <div class="container-fluid">
+                <div class="row">
+                <!-- COLONNES DE GAUCHE -->
+                    <div class="col-md-9" align="center">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                <!-- COLONNES DE DROITE -->
+                    <div class="col-md-3" align="center">
+                        <div class="container-fluid">
+                            <div class="sous-titre">
+                                {% for equipement in equipement %}
+                                    <div class="photo">
+                                        {% load static %} <img src="{% static equipement.photo %}" alt="image" class="img-thumbnail"/>
+                                    </div>
+                                    <h2><a href="">{{ equipement.id_equip }}</a></h2>
+                                    <h3><a href="">statut : <u>{{ equipement.disponibilite }}</u></a></h3>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
